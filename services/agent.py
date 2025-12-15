@@ -1,13 +1,14 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from langgraph.prebuilt import create_react_agent
 from langchain_google_genai import ChatGoogleGenerativeAI
-from mcp_server import sabermetrics_rag_tool
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
+from services.mcp_server import sabermetrics_rag_tool
+from app.core.config import settings
 
 def create_agent():
-    api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    api_key = settings.GEMINI_API_KEY
     if not api_key:
         raise ValueError("GEMINI_API_KEY or GOOGLE_API_KEY not found in environment variables.")
 

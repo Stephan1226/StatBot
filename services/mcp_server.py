@@ -5,7 +5,7 @@ from typing import List, Tuple
 
 import mcp.server.fastmcp as fastmcp
 from langchain.tools import tool
-from rag_pipeline import search
+from services.rag_pipeline import search
 
 
 _METRIC_PATTERNS: List[Tuple[str, List[str]]] = [
